@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
-export default function PokemonCard({ pokemon }) {
+export default function PokemonCard({ pokemon, handleClick }) {
   return (
-    <div>
+    <div className="pokemon-card" onClick={() => handleClick(pokemon.id)}>
       <img src={pokemon.png} />
     </div>
   );
@@ -10,4 +10,5 @@ export default function PokemonCard({ pokemon }) {
 
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
 };

@@ -16,22 +16,32 @@ function App() {
     handleGetAllPokemon();
   }, []);
 
+  function handleClick(id) {
+    console.log(id);
+  }
+
   return (
-    <>
+    <main>
       <header>
         <h2>Gotta Catch &apos;Em All</h2>
       </header>
       <div className="list-container">
         <div className="pokemon-list">
           {pokemon.map((poke, i) => {
-            return <PokemonCard key={poke.id + i} pokemon={poke} />;
+            return (
+              <PokemonCard
+                key={poke.id + i}
+                pokemon={poke}
+                handleClick={handleClick}
+              />
+            );
           })}
         </div>
         <div className="pokedex-list">
           <PokedexCard />
         </div>
       </div>
-    </>
+    </main>
   );
 }
 
