@@ -11,4 +11,5 @@ export default function PokemonCard({ pokemon, handleClick }) {
 PokemonCard.propTypes = {
   pokemon: PropTypes.object.isRequired,
   handleClick: PropTypes.func.isRequired,
+  // addedToPokedex: PropTypes.bool.isRequired,
 };
