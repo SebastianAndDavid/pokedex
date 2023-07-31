@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import { getAllPokemon } from "./services/fetch-utils";
+import PokemonCard from "./components/PokemonCard";
+import PokedexCard from "./components/PokedexCard";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [pokemon, setPokemon] = useState([]);
+
+  async function handleGetAllPokemon() {
+    const data = await getAllPokemon();
+    setPokemon(data);
+  }
+
+  useEffect(() => {
+    handleGetAllPokemon();
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <header>
+        <h2>Gotta Catch &apos;Em All</h2>
+      </header>
+      <div className="list-container">
+        <div className="pokemon-list">
+          <PokemonCard />
+        </div>
+        <div className="pokedex-list">
+          <PokedexCard />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
