@@ -8,6 +8,7 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [clickedPokemon, setClickedPokemon] = useState({});
   const [pokedex, setPokedex] = useState([]);
+
   console.log("pokedex", pokedex);
 
   async function handleGetAllPokemon() {
@@ -20,7 +21,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    pokedex.push(clickedPokemon);
+    setPokedex([...pokedex, clickedPokemon]);
   }, [clickedPokemon]);
 
   function handleClick(pokemon) {
@@ -45,7 +46,9 @@ function App() {
           })}
         </div>
         <div className="pokedex-list">
-          <PokedexCard />
+          {pokedex.map((poke, i) => {
+            return <PokedexCard key={poke.id + i} pokemon={poke} />;
+          })}
         </div>
       </div>
     </main>
