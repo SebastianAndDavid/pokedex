@@ -6,6 +6,9 @@ import PokedexCard from "./components/PokedexCard";
 
 function App() {
   const [pokemon, setPokemon] = useState([]);
+  const [clickedPokemon, setClickedPokemon] = useState({});
+  const [pokedex, setPokedex] = useState([]);
+  console.log("pokedex", pokedex);
 
   async function handleGetAllPokemon() {
     const data = await getAllPokemon();
@@ -16,8 +19,12 @@ function App() {
     handleGetAllPokemon();
   }, []);
 
-  function handleClick(id) {
-    console.log(id);
+  useEffect(() => {
+    pokedex.push(clickedPokemon);
+  }, [clickedPokemon]);
+
+  function handleClick(pokemon) {
+    setClickedPokemon(pokemon);
   }
 
   return (
