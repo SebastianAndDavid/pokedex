@@ -10,14 +10,13 @@
 }
 
 .pokemon-list {
-  width: 500px;
-  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   border: 1px solid black;
   margin: 1px;
 }
 .pokedex-list {
-  width: 500px;
-  height: 300px;
   border: 1px solid black;
   margin: 1px;
 }

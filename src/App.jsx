@@ -23,7 +23,9 @@ function App() {
       </header>
       <div className="list-container">
         <div className="pokemon-list">
-          <PokemonCard />
+          {pokemon.map((poke, i) => {
+            return <PokemonCard key={poke.id + i} pokemon={poke} />;
+          })}
         </div>
         <div className="pokedex-list">
           <PokedexCard />
