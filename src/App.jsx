@@ -30,16 +30,6 @@ function App() {
     setClickedPokemon(pokemon);
   }
 
-  // function compareArrays() {
-  //   const inPokedex =
-  //     pokedex && pokedex.find((poked) => poked.id === pokemon.id);
-  //   console.log("pokedex", pokedex);
-  //   console.log("pokemon id", pokemon.id);
-  //   console.log("inPokedex", inPokedex);
-  // }
-
-  // compareArrays();
-
   return (
     <main>
       <header>
@@ -52,7 +42,16 @@ function App() {
               pokedex && pokedex.find((poked) => poked.id === poke.id);
             console.log("inPokedex", inPokedex);
             // for each poke in [pokemon], check poke.id and if it matches inPokedex.id then deactive/gray out the <PokemanCard/> that matches poke.id
-
+            if (inPokedex && inPokedex.id == poke.id) {
+              return (
+                <PokemonCard
+                  key={poke.id + i}
+                  pokemon={poke}
+                  handleClick={handleClick}
+                  inPokedex={true}
+                />
+              );
+            }
             return (
               <PokemonCard
                 key={poke.id + i}
@@ -64,7 +63,7 @@ function App() {
         </div>
         <div className="pokedex-list">
           {pokedex.map((poke, i) => {
-            return <PokedexCard key={poke.id + i} pokemon={poke} />;
+            return <PokedexCard key={poke.id + i + poke.name} pokemon={poke} />;
           })}
         </div>
       </div>
