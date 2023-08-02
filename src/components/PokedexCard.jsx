@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
 
 export default function PokedexCard({ pokemon }) {
+  function switchClasses(id) {
+    const ashClassName = "ash";
+    const pokedexCardClassName = "pokedex-card";
+    if (id == 152) {
+      return ashClassName;
+    } else {
+      return pokedexCardClassName;
+    }
+  }
+
   return (
     <div className="pokedex-card-container">
-      <div className="pokedex-card">
-        {pokemon.id != 152 && pokemon.id}
+      <div className={switchClasses(pokemon.id)}>
+        {pokemon.id != 152 && `#${pokemon.id}`}
         <b>{pokemon.name}</b>
         <img src={pokemon.gif} />
       </div>
-      <div className="details">
+      <div className="pokedex-details">
         {pokemon.type1 && (
           <em>
             Type: {pokemon.type1}

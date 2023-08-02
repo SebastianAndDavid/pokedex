@@ -13,21 +13,24 @@ main {
   width: 100vw;
 }
 
+/* Parent container */
 .list-container {
   display: flex;
   justify-content: space-around;
 }
 
+/* Pokemon list */
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-content: flex-start;
   width: 600px;
-  /* border: 1px solid black; */
-  /* margin: 1px; */
 }
 
 .pokemon-card {
+  height: 104;
+  width: 98;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0px 1px 6px 4px rgba(187, 177, 185, 1);
@@ -38,6 +41,7 @@ main {
   cursor: pointer;
 }
 
+/* Pokedex list */
 .pokedex-list {
   margin: 1px;
 }
@@ -52,18 +56,24 @@ main {
 }
 
 .pokedex-card {
+  height: 298px;
   display: flex;
   justify-content: center;
   flex-direction: column-reverse;
-  /* border: 1px solid black;
-  border-radius: 5px;
-  box-shadow: 0px 1px 6px 4px rgba(187, 177, 185, 1); */
 }
 
 .pokedex-card img {
   padding: 2px;
 }
 
-.details {
+.pokedex-details {
   width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ash {
+  display: flex;
+  margin: 2px;
 }
