@@ -17,6 +17,7 @@ main {
 .list-container {
   display: flex;
   justify-content: space-around;
+  position: relative;
 }
 
 /* Pokemon list */
@@ -44,7 +45,15 @@ main {
 /* Pokedex list */
 .pokedex-list {
   margin: 1px;
+  height: 1000px;
+  overflow: auto;
+  position: sticky;
+  top: 0;
 }
+
+/* .pokedex-list::-webkit-scrollbar {
+  display: none;
+} */
 
 .pokedex-card-container {
   display: flex;
@@ -75,5 +84,14 @@ main {
 
 .ash {
   display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
   margin: 2px;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 1px 6px 4px rgba(187, 177, 185, 1);
+}
+
+.ash .pokedex-card {
+  height: 100px;
 }
