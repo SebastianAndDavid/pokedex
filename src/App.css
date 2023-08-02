@@ -34,7 +34,7 @@ main {
   margin: 2px;
 }
 
-.pokedex-card img {
+.pokemon-card img {
   cursor: pointer;
 }
 
@@ -42,8 +42,28 @@ main {
   margin: 1px;
 }
 
-.pokedex-card {
+.pokedex-card-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 2px;
   border: 1px solid black;
   border-radius: 5px;
   box-shadow: 0px 1px 6px 4px rgba(187, 177, 185, 1);
+}
+
+.pokedex-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  /* border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 0px 1px 6px 4px rgba(187, 177, 185, 1); */
+}
+
+.pokedex-card img {
+  padding: 2px;
+}
+
+.details {
+  width: 100px;
 }
