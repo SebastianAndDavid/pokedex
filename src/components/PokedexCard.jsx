@@ -12,7 +12,7 @@ export default function PokedexCard({ pokemon }) {
   }
 
   return (
-    <div className={switchClasses(pokemon.id)}>
+    <div className={pokemon.id === 152 ? "ash" : "pokedex-card-container"}>
       <div className="pokedex-card">
         {pokemon.id != 152 && `#${pokemon.id}`}
         <b>{pokemon.name}</b>
