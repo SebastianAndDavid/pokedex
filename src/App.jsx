@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { getAllPokemon } from "./services/fetch-utils";
+import { getAllPokemon, getPokemonByName } from "./services/fetch-utils";
 import PokemonCard from "./components/PokemonCard";
 import PokedexCard from "./components/PokedexCard";
 
@@ -8,6 +8,11 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [clickedPokemon, setClickedPokemon] = useState({});
   const [pokedex, setPokedex] = useState([]);
+  const [pokemonSearch, setPokemonSearch] = useState("");
+
+  console.log("pokemonSearch", pokemonSearch);
+  console.log("pokemon", pokemon);
+
   async function handleGetAllPokemon() {
     const data = await getAllPokemon();
     setPokemon(data);
@@ -26,11 +31,30 @@ function App() {
     setClickedPokemon(pokemon);
   }
 
+  async function handleSubmit() {
+    const data = await getPokemonByName(pokemonSearch);
+    console.log("data", data);
+    setPokemon(data);
+  }
+
   return (
     <main>
       <header>
         <h2>Gotta Catch &apos;Em All</h2>
       </header>
+      <label>
+        Search for a Pokemon
+        <input
+          type="text"
+          value={pokemonSearch}
+          placeholder="Search for a Pokemon"
+          onChange={(e) => setPokemonSearch(e.target.value)}
+        />
+        <button onClick={() => handleSubmit()} type="submit">
+          Submit
+        </button>
+      </label>
+
       <div className="list-container">
         <div className="pokemon-list">
           {pokemon.map((poke, i) => {

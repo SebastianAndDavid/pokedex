@@ -9,5 +9,12 @@ async function getAllPokemon() {
   const { data } = await supabase.from("pokemon").select("*");
   return data;
 }
+async function getPokemonByName(name) {
+  const { data } = await supabase
+    .from("pokemon")
+    .select()
+    .textSearch("name", name);
+  return data;
+}
 
-export { getAllPokemon };
+export { getAllPokemon, getPokemonByName };
